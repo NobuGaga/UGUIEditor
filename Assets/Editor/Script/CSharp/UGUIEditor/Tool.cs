@@ -8,8 +8,6 @@ namespace UGUIEditor {
     internal static class Tool {
         
         public static void DeleteCanvasRenderer() {
-            if (!Directory.Exists(EditorPath.UI))
-                return;
             string[] windowFolders = Directory.GetDirectories(EditorPath.UI);
             if (windowFolders == null)
                 return;
@@ -25,46 +23,38 @@ namespace UGUIEditor {
                     if (!fullPath.EndsWith(EditorConst.PrefabExtension))
                         continue;
                     string projectPath = EditorPath.FullPathToProjectPath(fullPath);
-                    GameObject gameObject = AssetDatabase.LoadAssetAtPath<GameObject>(projectPath);
-                    if (gameObject == null)
+                    GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(projectPath);
+                    if (prefab == null)
                         continue;
-                    CanvasRenderer[] canvasRenderers = gameObject.GetComponentsInChildren<CanvasRenderer>();
+                    CanvasRenderer[] canvasRenderers = prefab.GetComponentsInChildren<CanvasRenderer>();
                     if (canvasRenderers == null)
                         continue;
-                    int canvasRendererIndex = 0;
+                    bool isDirty = false;
                     for (int index = 0; index < canvasRenderers.Length; index++) {
-                        gameObject = canvasRenderers[index].gameObject;
-                        if (CheckIsNeedCanvasRenderers(gameObject, ref canvasRendererIndex))
+                        if (CheckIsNeedCanvasRenderers(canvasRenderers[index]))
                             continue;
-                        RemoveCanvasRenderFromPrefab(gameObject, canvasRendererIndex);
+                        GameObject.DestroyImmediate(canvasRenderers[index], true);
+                        isDirty = true;
                     }
+                    if (isDirty)
+                        EditorUtility.SetDirty(prefab);
                 }
             }
             AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
 
-        private static bool CheckIsNeedCanvasRenderers(GameObject gameObject, ref int canvasRendererIndex) {
-            Component[] components = gameObject.GetComponents<Component>();
+        private static bool CheckIsNeedCanvasRenderers(CanvasRenderer canvasRenderer) {
+            Component[] components = canvasRenderer.GetComponents<Component>();
             bool isNeed = false;
             for (int index = 0; index < components.Length; index++) {
                 Component component = components[index];
                 Type type = component.GetType();
-                if (component is CanvasRenderer)
-                    canvasRendererIndex = index;
                 isNeed = component is Text || type.IsSubclassOf(EditorConfig.TextType) || component is Image || 
                          type.IsSubclassOf(EditorConfig.ImageType);
                 if (isNeed)
                     break;
             }
             return isNeed;
-        }
-
-        private static void RemoveCanvasRenderFromPrefab(GameObject gameObject, int canvasRendererIndex) {
-            SerializedObject serializeObj = new SerializedObject(gameObject);
-            SerializedProperty property = serializeObj.FindProperty("m_Component");
-            property.DeleteArrayElementAtIndex(canvasRendererIndex);
-            serializeObj.ApplyModifiedProperties();
         }
 
         public static string GetCacheString(string text) {

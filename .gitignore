@@ -1,0 +1,9 @@
+# Root Unnecessary Group
+.vs
+Library
+Logs
+Temp
+obj
+
+# Mac Mark File Name
+.DS_Store

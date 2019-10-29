@@ -48,6 +48,7 @@
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConst.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorMenu.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorPath.cs" />
+     <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Inspector\CanvasRenderer.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Tool.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

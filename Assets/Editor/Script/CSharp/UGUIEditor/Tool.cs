@@ -50,7 +50,8 @@ namespace UGUIEditor {
                 Component component = components[index];
                 Type type = component.GetType();
                 isNeed = component is Text || type.IsSubclassOf(EditorConfig.TextType) || component is Image || 
-                         type.IsSubclassOf(EditorConfig.ImageType);
+                         type.IsSubclassOf(EditorConfig.ImageType) || component is RawImage || 
+                         type.IsSubclassOf(EditorConfig.RawImageType);
                 if (isNeed)
                     break;
             }

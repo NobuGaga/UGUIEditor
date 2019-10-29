@@ -4,10 +4,10 @@ using System.IO;
 namespace UGUIEditor {
     internal static class EditorPath {
 
-        private static readonly string FullProjectPath = Application.dataPath.Substring(0, Application.dataPath.IndexOf(ProjectPathStart));
         private const string ProjectPathStart = "Assets";
         public static readonly string UI = Combine(Application.dataPath, "Working/UI");
         public const string UIPrefabsFolder = "Prefabs";
+        public static readonly string TempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Controls");
 
         public static string FullPathToProjectPath(string fullPath) {
             int subIndex = fullPath.IndexOf(ProjectPathStart);
@@ -18,8 +18,10 @@ namespace UGUIEditor {
 #if UNITY_EDITOR_WIN
             path1 = CheckWindowsPathFlag(path1);
             path2 = CheckWindowsPathFlag(path2);
-#endif
+            return CheckWindowsPathFlag(Path.Combine(path1, path2));
+#else
             return Path.Combine(path1, path2);
+#endif
         }
 
 #if UNITY_EDITOR_WIN

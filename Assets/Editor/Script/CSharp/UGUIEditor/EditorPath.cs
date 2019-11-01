@@ -7,7 +7,8 @@ namespace UGUIEditor {
         private const string ProjectPathStart = "Assets";
         public static readonly string UI = Combine(Application.dataPath, "Working/UI");
         public const string UIPrefabsFolder = "Prefabs";
-        public static readonly string TempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Controls");
+        public static readonly string ControlsTempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Controls");
+        public static readonly string ModelTempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Model");
 
         public static string FullPathToProjectPath(string fullPath) {
             int subIndex = fullPath.IndexOf(ProjectPathStart);

@@ -4,11 +4,14 @@ using System.IO;
 namespace UGUIEditor {
     internal static class EditorPath {
 
-        private const string ProjectPathStart = "Assets";
+        public const string ProjectPathStart = "Assets";
+        public static readonly string Scene = Combine(ProjectPathStart, "Main.unity");
         public static readonly string UI = Combine(Application.dataPath, "Working/UI");
         public const string UIPrefabsFolder = "Prefabs";
-        public static readonly string ControlsTempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Controls");
-        public static readonly string ModelTempleteUI = Combine(Application.dataPath, "Resources/TempleteUI/Prefabs/Model");
+        public const string ControlsTempleteUIAssetPath = "Resources/TempleteUI/Prefabs/Controls";
+        public static readonly string ControlsTempleteUI = Combine(Application.dataPath, ControlsTempleteUIAssetPath);
+        public const string ModelTempleteUIAssetPath = "Resources/TempleteUI/Prefabs/Model";
+        public static readonly string ModelTempleteUI = Combine(Application.dataPath, ModelTempleteUIAssetPath);
 
         public static string FullPathToProjectPath(string fullPath) {
             int subIndex = fullPath.IndexOf(ProjectPathStart);

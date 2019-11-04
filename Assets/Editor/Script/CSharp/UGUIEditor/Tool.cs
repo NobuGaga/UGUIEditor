@@ -88,6 +88,10 @@ namespace UGUIEditor {
             return false;
         }
 
+        public static string GetNameWithExtension(string name, string extension) {
+            return GetCacheString(string.Format("{0}.{1}", GetCacheString(name), GetCacheString(extension)));
+        }
+
         public static string GetCacheString(string text) {
             return string.Intern(text);
         }

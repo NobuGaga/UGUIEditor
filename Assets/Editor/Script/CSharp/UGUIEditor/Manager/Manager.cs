@@ -19,47 +19,38 @@ namespace UGUIEditor {
 	    }
 
         public static void AddImage() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.Image);
         }
 
         public static void AddRawImage() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.RawImage);
         }
 
         public static void AddText() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.Text);
         }
 
         public static void AddStyleOneButton() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.StyleOneButton);
         }
 
         public static void AddToggle() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.Toggle);
         }
 
         public static void AddProcess() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.ProcessBar);
         }
 
         public static void AddSlider() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.Slider);
         }
 
         public static void AddHorizontalScrollView() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.HorizontalScrollView);
         }
 
         public static void AddVerticalScrollView() {
-            OpenEditorScene();
             Controller.AddGameObject(EPrefabType.VerticalScrollView);
         }
 

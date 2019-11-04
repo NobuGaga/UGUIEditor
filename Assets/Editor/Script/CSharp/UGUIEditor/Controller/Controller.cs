@@ -35,9 +35,9 @@ namespace UGUIEditor {
             else
                 parent = Selection.activeTransform;
             if (isConnect)
-    	        gameObject = PrefabUtility.InstantiatePrefab(gameObject, m_windowParent) as GameObject;
+    	        gameObject = PrefabUtility.InstantiatePrefab(gameObject, parent) as GameObject;
             else
-                gameObject = Object.Instantiate(gameObject, m_windowParent);
+                gameObject = Object.Instantiate(gameObject, parent);
             gameObject.name = prefabType.ToString();
             Transform transform =  gameObject.transform;
             transform.localPosition = Vector3.zero;

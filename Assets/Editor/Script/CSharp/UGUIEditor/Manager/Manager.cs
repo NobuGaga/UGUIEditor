@@ -7,7 +7,6 @@ namespace UGUIEditor {
     internal static class Manager {
 
         private static Scene m_scene;
-        private static Transform m_uiParent;
 
         public static void AddFullScreenWindow() {
             OpenEditorScene();
@@ -18,6 +17,51 @@ namespace UGUIEditor {
             OpenEditorScene();
             Controller.AddGameObject(EPrefabType.Window);
 	    }
+
+        public static void AddImage() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.Image);
+        }
+
+        public static void AddRawImage() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.RawImage);
+        }
+
+        public static void AddText() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.Text);
+        }
+
+        public static void AddStyleOneButton() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.StyleOneButton);
+        }
+
+        public static void AddToggle() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.Toggle);
+        }
+
+        public static void AddProcess() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.ProcessBar);
+        }
+
+        public static void AddSlider() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.Slider);
+        }
+
+        public static void AddHorizontalScrollView() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.HorizontalScrollView);
+        }
+
+        public static void AddVerticalScrollView() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.VerticalScrollView);
+        }
 
         private static void OpenEditorScene() {
             if (m_scene.isLoaded)

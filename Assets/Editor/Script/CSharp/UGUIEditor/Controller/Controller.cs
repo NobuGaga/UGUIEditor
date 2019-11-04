@@ -5,11 +5,11 @@ namespace UGUIEditor {
 
     internal static class Controller {
 
-        private static Transform m_parent;
+        private static Transform m_windowParent;
 
         public static void SetParent(Transform parent) {
-            m_parent = parent;
-            Selection.activeTransform = m_parent;
+            m_windowParent = parent;
+            Selection.activeTransform = m_windowParent;
         }
 
         public static void AddGameObject(EPrefabType prefabType) {
@@ -29,10 +29,15 @@ namespace UGUIEditor {
                 Debug.LogError("Load prefab is null. path = " + path);
                 return;
             }
-            if (isConnect)
-    	        gameObject = PrefabUtility.InstantiatePrefab(gameObject, m_parent) as GameObject;
+            Transform parent;
+            if (prefabType == EPrefabType.FullScreenWindow || prefabType == EPrefabType.Window)
+                parent = m_windowParent;
             else
-                gameObject = Object.Instantiate(gameObject, m_parent);
+                parent = Selection.activeTransform;
+            if (isConnect)
+    	        gameObject = PrefabUtility.InstantiatePrefab(gameObject, m_windowParent) as GameObject;
+            else
+                gameObject = Object.Instantiate(gameObject, m_windowParent);
             gameObject.name = prefabType.ToString();
             Transform transform =  gameObject.transform;
             transform.localPosition = Vector3.zero;

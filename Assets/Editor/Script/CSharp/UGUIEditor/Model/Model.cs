@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 namespace UGUIEditor {
@@ -8,22 +9,16 @@ namespace UGUIEditor {
         private static Dictionary<EPrefabType, string> m_dicPrefabPath;
 
         static Model() {
-            m_dicPrefabPath = new Dictionary<EPrefabType, string>(64);
-            AddControlsTempleteUI(EPrefabType.FullScreenWindow, "Window");
-            AddControlsTempleteUI(EPrefabType.Window, "Window");
+            Array prefabTypes = Enum.GetValues(typeof(EPrefabType));
+            m_dicPrefabPath = new Dictionary<EPrefabType, string>(prefabTypes.Length);
+            for (int index = 0; index < prefabTypes.Length; index++) {
+                EPrefabType prefabType = (EPrefabType)prefabTypes.GetValue(index);
+                AddTempleteUI(prefabType, prefabType.ToString());
+            }
         }
 
-        private static void AddControlsTempleteUI(EPrefabType prefabType, string prefabName) {
-            string path = EditorPath.Combine(EditorPath.ProjectPathStart, EditorPath.ControlsTempleteUIAssetPath);
-            AddTempleteUI(prefabType, path, prefabName);
-        }
-
-        private static void AddModelTempleteUI(EPrefabType prefabType, string prefabName) {
-            string path = EditorPath.Combine(EditorPath.ProjectPathStart, EditorPath.ModelTempleteUIAssetPath);
-            AddTempleteUI(prefabType, path, prefabName);
-        }
-
-        private static void AddTempleteUI(EPrefabType prefabType, string path, string prefabName) {
+        private static void AddTempleteUI(EPrefabType prefabType, string prefabName) {
+            string path = EditorPath.Combine(EditorPath.ProjectPathStart, EditorPath.TempleteUIAssetPath);
             string prefabWithExt = Tool.GetNameWithExtension(prefabName, EditorConst.PrefabExtension);
             m_dicPrefabPath.Add(prefabType, EditorPath.Combine(path, prefabWithExt));
         }

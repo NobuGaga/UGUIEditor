@@ -16,11 +16,7 @@ namespace UGUIEditor {
         }
 
         private static void LoadAllPrefab(Action<GameObject> doSomething) {
-            LoadPrefab(EditorPath.ControlsTempleteUI, doSomething);
-            string[] modelFolders = Directory.GetDirectories(EditorPath.ModelTempleteUI);
-            if (modelFolders != null)
-                for (int index = 0; index < modelFolders.Length; index++)
-                    LoadPrefab(modelFolders[index], doSomething);
+            LoadPrefab(EditorPath.TempleteUI, doSomething);
             string[] windowFolders = Directory.GetDirectories(EditorPath.UI);
             if (windowFolders != null)
                 for (int index = 0; index < windowFolders.Length; index++) {

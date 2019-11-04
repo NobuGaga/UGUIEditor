@@ -14,6 +14,11 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.FullScreenWindow);
 	    }
 
+        public static void AddWindow() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.Window);
+	    }
+
         private static void OpenEditorScene() {
             if (m_scene.isLoaded)
                 return;

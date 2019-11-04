@@ -13,6 +13,11 @@ namespace UGUIEditor {
             Manager.AddFullScreenWindow();
 	    }
 
+        [MenuItem(MenuTitle + UITitle + "普通窗体")]
+        private static void AddWindow() {
+            Manager.AddWindow();
+	    }
+
         [MenuItem(MenuTitle + ToolTitle + "删除丢失组件")]
         private static void DeleteMissingComponent() {
             Tool.DeleteAllPrefabMissingComponent();

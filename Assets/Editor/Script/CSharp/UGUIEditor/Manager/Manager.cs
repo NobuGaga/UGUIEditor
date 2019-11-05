@@ -18,6 +18,10 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.Window);
 	    }
 
+        public static void AddEmptyGameObject() {
+            Controller.CreateEmpty();
+	    }
+
         public static void AddImage() {
             Controller.AddGameObject(EPrefabType.Image);
         }

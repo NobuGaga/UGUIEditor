@@ -20,6 +20,11 @@ namespace UGUIEditor {
             Manager.AddWindow();
 	    }
 
+        [MenuItem(ComponentTitle + "空节点")]
+        private static void AddEmptyGameObject() {
+            Manager.AddEmptyGameObject();
+	    }
+
         [MenuItem(ComponentTitle + "图片/小图")]
         private static void AddImage() {
             Manager.AddImage();

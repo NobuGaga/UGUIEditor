@@ -12,6 +12,15 @@ namespace UGUIEditor {
             Selection.activeTransform = m_windowParent;
         }
 
+        public static void CreateEmpty() {
+            GameObject gameObject = ObjectFactory.CreateGameObject("GameObject");
+            gameObject.name = "EmptyNode";
+            gameObject.AddComponent<RectTransform>();
+            gameObject.transform.SetParent(Selection.activeTransform);
+            Normalize(gameObject);
+            Selection.activeGameObject = gameObject;
+        }
+
         public static void AddGameObject(EPrefabType prefabType) {
             AddPrefabGameObject(prefabType, false);
         }
@@ -39,11 +48,18 @@ namespace UGUIEditor {
             else
                 gameObject = Object.Instantiate(gameObject, parent);
             gameObject.name = prefabType.ToString();
+            Selection.activeGameObject = gameObject;
+            Normalize(gameObject);
+        }
+
+        private static void Normalize(GameObject gameObject) {
             Transform transform =  gameObject.transform;
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
             transform.localScale = Vector3.one;
-            Selection.activeTransform = transform;
+            if (transform.parent == null)
+                return;
+            gameObject.layer = transform.parent.gameObject.layer;
         }
     }
 }

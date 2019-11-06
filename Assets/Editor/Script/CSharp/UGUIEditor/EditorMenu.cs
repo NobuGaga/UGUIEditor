@@ -40,6 +40,11 @@ namespace UGUIEditor {
             Manager.AddText();
 	    }
 
+        [MenuItem(ComponentTitle + "文本/输入框")]
+        private static void AddInputText() {
+            Manager.AddInputText();
+	    }
+
         [MenuItem(ComponentTitle + "按钮/样式1")]
         private static void AddStyleOneButton() {
             Manager.AddStyleOneButton();

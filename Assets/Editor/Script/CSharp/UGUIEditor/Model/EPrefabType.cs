@@ -7,6 +7,7 @@ namespace UGUIEditor {
         Image,
         RawImage,
         Text,
+        InputText,
         StyleOneButton,
         Toggle,
         ProcessBar,

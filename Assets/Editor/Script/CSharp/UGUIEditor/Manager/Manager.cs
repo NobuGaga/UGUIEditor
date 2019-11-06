@@ -34,6 +34,10 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.Text);
         }
 
+        public static void AddInputText() {
+            Controller.AddGameObject(EPrefabType.InputText);
+        }
+
         public static void AddStyleOneButton() {
             Controller.AddGameObject(EPrefabType.StyleOneButton);
         }

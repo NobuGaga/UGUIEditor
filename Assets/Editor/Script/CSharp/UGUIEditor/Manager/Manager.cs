@@ -10,7 +10,7 @@ namespace UGUIEditor {
 
         public static void AddFullScreenWindow() {
             OpenEditorScene();
-            Controller.AddGameObject(EPrefabType.FullScreenWindow);
+            Controller.OpenFullWindow(EPrefabType.FullScreenWindow);
 	    }
 
         public static void AddWindow() {

@@ -10,12 +10,12 @@ namespace UGUIEditor {
         private const string ComponentTitle = UITitle + "组件/";
         private const string ToolTitle = MenuTitle + "工具/";
 
-        [MenuItem(UITitle + "窗体/全屏窗体")]
+        [MenuItem(UITitle + "窗体/全屏窗体 #N")]
         private static void AddFullScreenWindow() {
             Manager.AddFullScreenWindow();
 	    }
 
-        [MenuItem(UITitle + "窗体/普通窗体")]
+        [MenuItem(UITitle + "窗体/普通窗体 #W")]
         private static void AddWindow() {
             Manager.AddWindow();
 	    }

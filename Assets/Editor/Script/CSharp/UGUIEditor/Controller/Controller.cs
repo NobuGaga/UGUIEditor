@@ -6,10 +6,20 @@ namespace UGUIEditor {
     internal static class Controller {
 
         private static Transform m_windowParent;
+        private static GameObject m_lastWindow;
 
         public static void SetParent(Transform parent) {
             m_windowParent = parent;
             Selection.activeTransform = m_windowParent;
+            // 切换新场景重置上一次窗口节点
+            m_lastWindow = null;
+        }
+
+        public static void OpenFullWindow(EPrefabType prefabType) {
+            if (m_lastWindow != null)
+                Selection.activeGameObject = m_lastWindow;
+            else
+                m_lastWindow = AddGameObject(prefabType);
         }
 
         public static void CreateEmpty() {
@@ -21,22 +31,22 @@ namespace UGUIEditor {
             Selection.activeGameObject = gameObject;
         }
 
-        public static void AddGameObject(EPrefabType prefabType) {
-            AddPrefabGameObject(prefabType, false);
+        public static GameObject AddGameObject(EPrefabType prefabType) {
+            return AddPrefabGameObject(prefabType, false);
         }
 
-        public static void AddPrefabGameObject(EPrefabType prefabType) {
-            AddPrefabGameObject(prefabType, true);
+        public static GameObject AddPrefabGameObject(EPrefabType prefabType) {
+            return AddPrefabGameObject(prefabType, true);
         }
 
-        private static void AddPrefabGameObject(EPrefabType prefabType, bool isConnect) {
+        private static GameObject AddPrefabGameObject(EPrefabType prefabType, bool isConnect) {
             string path = Model.GetPrefabPath(prefabType);
             if (string.IsNullOrEmpty(path))
-                return;
+                return null;
             GameObject gameObject = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if (gameObject == null) {
                 Debug.LogError("Load prefab is null. path = " + path);
-                return;
+                return null;
             }
             Transform parent;
             if (prefabType == EPrefabType.FullScreenWindow || prefabType == EPrefabType.Window)
@@ -50,6 +60,7 @@ namespace UGUIEditor {
             gameObject.name = prefabType.ToString();
             Selection.activeGameObject = gameObject;
             Normalize(gameObject);
+            return gameObject;
         }
 
         private static void Normalize(GameObject gameObject) {

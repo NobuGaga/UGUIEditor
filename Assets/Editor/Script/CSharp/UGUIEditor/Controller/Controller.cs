@@ -25,7 +25,8 @@ namespace UGUIEditor {
         public static void CreateEmpty() {
             GameObject gameObject = ObjectFactory.CreateGameObject("GameObject");
             gameObject.name = "EmptyNode";
-            gameObject.AddComponent<RectTransform>();
+            RectTransform rect = gameObject.AddComponent<RectTransform>();
+            rect.sizeDelta = Vector2.zero;
             gameObject.transform.SetParent(Selection.activeTransform);
             Normalize(gameObject);
             Selection.activeGameObject = gameObject;

@@ -67,10 +67,6 @@ namespace UGUIEditor {
             Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelOneHight);
 	    }
 
-        public static void AddStyleButtonLevelOneLow() {
-            Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelOneHight);
-	    }
-
         public static void AddStyleButtonLevelTwoHight() {
             Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelTwoHight);
 	    }

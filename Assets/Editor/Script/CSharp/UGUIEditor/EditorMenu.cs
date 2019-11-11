@@ -81,11 +81,6 @@ namespace UGUIEditor {
             Manager.AddStyleButtonLevelOneHight();
 	    }
 
-        [MenuItem(StyleTitle + "按钮/一级按钮-权重低")]
-        private static void AddStyleButtonLevelOneLow() {
-            Manager.AddStyleButtonLevelOneLow();
-	    }
-
         [MenuItem(StyleTitle + "按钮/二级按钮-权重高")]
         private static void AddStyleButtonLevelTwoHight() {
             Manager.AddStyleButtonLevelTwoHight();

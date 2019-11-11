@@ -15,7 +15,6 @@ namespace UGUIEditor {
         HorizontalScrollView,
         VerticalScrollView,
         StyleButtonLevelOneHight,
-        StyleButtonLevelOneLow,
         StyleButtonLevelTwoHight,
         StyleButtonLevelTwoLow,
         StyleTabToggleVertical,

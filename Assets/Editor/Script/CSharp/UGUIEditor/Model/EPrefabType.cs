@@ -13,6 +13,12 @@ namespace UGUIEditor {
         ProcessBar,
         Slider,
         HorizontalScrollView,
-        VerticalScrollView
+        VerticalScrollView,
+        StyleButtonLevelOneHight,
+        StyleButtonLevelOneLow,
+        StyleButtonLevelTwoHight,
+        StyleButtonLevelTwoLow,
+        StyleTabToggleVertical,
+        StyleTabToggleHorizontal,
     }
 }

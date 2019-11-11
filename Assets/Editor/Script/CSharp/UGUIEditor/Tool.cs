@@ -15,6 +15,10 @@ namespace UGUIEditor {
             LoadAllPrefab(DeleteNoNeedCanvasRenderer);
         }
 
+        public static void UnpackAllPrefabInstance() {
+            LoadAllPrefab(UnpackPrefabInstance);
+        }
+
         private static void LoadAllPrefab(Action<GameObject> doSomething) {
             LoadPrefab(EditorPath.TempleteUI, doSomething);
             string[] windowFolders = Directory.GetDirectories(EditorPath.UI);
@@ -82,6 +86,25 @@ namespace UGUIEditor {
                     return true;
             }
             return false;
+        }
+
+        private static void UnpackPrefabInstance(GameObject prefab) {
+            Transform[] transforms = prefab.GetComponentsInChildren<Transform>(true);
+            if (transforms == null || transforms.Length == 0)
+                return;
+            for (int index = 0; index < transforms.Length; index++) {
+                if (transforms[index].name == prefab.name)
+                    continue;
+                GameObject node = transforms[index].gameObject;
+                if (!PrefabUtility.IsAnyPrefabInstanceRoot(node))
+                    continue;
+                GameObject prefabRoot = PrefabUtility.InstantiatePrefab(prefab, Manager.WindowParent) as GameObject;
+                string path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(prefab);
+                PrefabUtility.UnpackPrefabInstance(prefabRoot, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                PrefabUtility.SaveAsPrefabAsset(prefabRoot, path);
+                UnityEngine.Object.DestroyImmediate(prefabRoot);
+                break;
+            }
         }
 
         public static string GetNameWithExtension(string name, string extension) {

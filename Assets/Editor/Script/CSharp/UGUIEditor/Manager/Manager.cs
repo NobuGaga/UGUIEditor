@@ -7,7 +7,8 @@ namespace UGUIEditor {
     internal static class Manager {
 
         private static Scene m_scene;
-
+        public static Transform WindowParent => Controller.WindowParent;
+        
         public static void AddFullScreenWindow() {
             OpenEditorScene();
             Controller.OpenFullWindow(EPrefabType.FullScreenWindow);
@@ -61,6 +62,30 @@ namespace UGUIEditor {
         public static void AddVerticalScrollView() {
             Controller.AddGameObject(EPrefabType.VerticalScrollView);
         }
+
+        public static void AddStyleButtonLevelOneHight() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelOneHight);
+	    }
+
+        public static void AddStyleButtonLevelOneLow() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelOneHight);
+	    }
+
+        public static void AddStyleButtonLevelTwoHight() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelTwoHight);
+	    }
+
+        public static void AddStyleButtonLevelTwoLow() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelTwoLow);
+	    }
+
+        public static void AddStyleTabToggleVertical() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleTabToggleVertical);
+	    }
+
+        public static void AddStyleTabToggleHorizontal() {
+            Controller.AddPrefabGameObject(EPrefabType.StyleTabToggleHorizontal);
+	    }
 
         private static void OpenEditorScene() {
             if (m_scene.isLoaded)

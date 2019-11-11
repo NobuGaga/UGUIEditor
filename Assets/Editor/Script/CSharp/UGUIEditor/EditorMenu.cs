@@ -9,6 +9,7 @@ namespace UGUIEditor {
         private const string UITitle = MenuTitle + "添加/";
         private const string ComponentTitle = UITitle + "组件/";
         private const string ToolTitle = MenuTitle + "工具/";
+        private const string StyleTitle = ComponentTitle + "样式/";
 
         [MenuItem(UITitle + "窗体/全屏窗体 #N")]
         private static void AddFullScreenWindow() {
@@ -45,7 +46,7 @@ namespace UGUIEditor {
             Manager.AddInputText();
 	    }
 
-        [MenuItem(ComponentTitle + "按钮/样式1")]
+        [MenuItem(ComponentTitle + "按钮/图文按钮")]
         private static void AddStyleOneButton() {
             Manager.AddStyleOneButton();
 	    }
@@ -73,6 +74,36 @@ namespace UGUIEditor {
         [MenuItem(ComponentTitle + "其他/拖动条")]
         private static void AddSlider() {
             Manager.AddSlider();
+	    }
+
+        [MenuItem(StyleTitle + "按钮/一级按钮-权重高")]
+        private static void AddStyleButtonLevelOneHight() {
+            Manager.AddStyleButtonLevelOneHight();
+	    }
+
+        [MenuItem(StyleTitle + "按钮/一级按钮-权重低")]
+        private static void AddStyleButtonLevelOneLow() {
+            Manager.AddStyleButtonLevelOneLow();
+	    }
+
+        [MenuItem(StyleTitle + "按钮/二级按钮-权重高")]
+        private static void AddStyleButtonLevelTwoHight() {
+            Manager.AddStyleButtonLevelTwoHight();
+	    }
+
+        [MenuItem(StyleTitle + "按钮/二级按钮-权重低")]
+        private static void AddStyleButtonLevelTwoLow() {
+            Manager.AddStyleButtonLevelTwoLow();
+	    }
+
+        [MenuItem(StyleTitle + "页签/垂直列表")]
+        private static void AddStyleTabToggleVertical() {
+            Manager.AddStyleTabToggleVertical();
+	    }
+
+        [MenuItem(StyleTitle + "页签/水平列表")]
+        private static void AddStyleTabToggleHorizontal() {
+            Manager.AddStyleTabToggleHorizontal();
 	    }
 
         [InitializeOnLoadMethod]
@@ -103,6 +134,11 @@ namespace UGUIEditor {
         [MenuItem(ToolTitle + "删除多余 Canvas Renderer 组件")]
         private static void DeleteNoNeedCanvasRenderer() {
             Tool.DeleteAllPrefabNoNeedCanvasRenderer();
+	    }
+
+        [MenuItem(ToolTitle + "解除所有嵌套预设绑定")]
+        private static void UnpackAllPrefabInstance() {
+            Tool.UnpackAllPrefabInstance();
 	    }
     }
 }

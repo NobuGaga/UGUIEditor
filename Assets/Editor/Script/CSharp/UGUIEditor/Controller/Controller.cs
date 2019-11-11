@@ -6,6 +6,7 @@ namespace UGUIEditor {
     internal static class Controller {
 
         private static Transform m_windowParent;
+        public static Transform WindowParent => m_windowParent;
         private static GameObject m_lastWindow;
 
         public static void SetParent(Transform parent) {

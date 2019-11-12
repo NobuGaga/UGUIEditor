@@ -19,6 +19,16 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.Window);
 	    }
 
+        public static void AddStyleSmallWindow() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.StyleSmallWindow);
+	    }
+
+        public static void AddStyleMiddleWindow() {
+            OpenEditorScene();
+            Controller.AddGameObject(EPrefabType.StyleMiddleWindow);
+	    }
+
         public static void AddEmptyGameObject() {
             Controller.CreateEmpty();
 	    }

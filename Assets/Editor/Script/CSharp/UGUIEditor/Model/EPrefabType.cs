@@ -14,6 +14,8 @@ namespace UGUIEditor {
         Slider,
         HorizontalScrollView,
         VerticalScrollView,
+        StyleSmallWindow,
+        StyleMiddleWindow,
         StyleButtonLevelOneHight,
         StyleButtonLevelTwoHight,
         StyleButtonLevelTwoLow,

@@ -7,18 +7,30 @@ namespace UGUIEditor {
 
         public const string MenuTitle = "UI 编辑器/";
         private const string UITitle = MenuTitle + "添加/";
+        private const string WindowTitle = UITitle + "窗体/";
+        private const string StyleWindowTitle = WindowTitle + "样式/";
         private const string ComponentTitle = UITitle + "组件/";
         private const string ToolTitle = MenuTitle + "工具/";
-        private const string StyleTitle = ComponentTitle + "样式/";
+        private const string StyleComponentTitle = ComponentTitle + "样式/";
 
-        [MenuItem(UITitle + "窗体/全屏窗体 #N")]
+        [MenuItem(WindowTitle + "全屏窗体 #N")]
         private static void AddFullScreenWindow() {
             Manager.AddFullScreenWindow();
 	    }
 
-        [MenuItem(UITitle + "窗体/普通窗体 #W")]
+        [MenuItem(WindowTitle + "普通窗体 #W")]
         private static void AddWindow() {
             Manager.AddWindow();
+	    }
+
+        [MenuItem(StyleWindowTitle + "小型弹窗")]
+        private static void AddStyleSmallWindow() {
+            Manager.AddStyleSmallWindow();
+	    }
+
+        [MenuItem(StyleWindowTitle + "中型弹窗")]
+        private static void AddStyleMiddleWindow() {
+            Manager.AddStyleMiddleWindow();
 	    }
 
         [MenuItem(ComponentTitle + "空节点")]
@@ -76,27 +88,27 @@ namespace UGUIEditor {
             Manager.AddSlider();
 	    }
 
-        [MenuItem(StyleTitle + "按钮/一级按钮-权重高")]
+        [MenuItem(StyleComponentTitle + "按钮/一级按钮-权重高")]
         private static void AddStyleButtonLevelOneHight() {
             Manager.AddStyleButtonLevelOneHight();
 	    }
 
-        [MenuItem(StyleTitle + "按钮/二级按钮-权重高")]
+        [MenuItem(StyleComponentTitle + "按钮/二级按钮-权重高")]
         private static void AddStyleButtonLevelTwoHight() {
             Manager.AddStyleButtonLevelTwoHight();
 	    }
 
-        [MenuItem(StyleTitle + "按钮/二级按钮-权重低")]
+        [MenuItem(StyleComponentTitle + "按钮/二级按钮-权重低")]
         private static void AddStyleButtonLevelTwoLow() {
             Manager.AddStyleButtonLevelTwoLow();
 	    }
 
-        [MenuItem(StyleTitle + "页签/垂直列表")]
+        [MenuItem(StyleComponentTitle + "页签/垂直列表")]
         private static void AddStyleTabToggleVertical() {
             Manager.AddStyleTabToggleVertical();
 	    }
 
-        [MenuItem(StyleTitle + "页签/水平列表")]
+        [MenuItem(StyleComponentTitle + "页签/水平列表")]
         private static void AddStyleTabToggleHorizontal() {
             Manager.AddStyleTabToggleHorizontal();
 	    }

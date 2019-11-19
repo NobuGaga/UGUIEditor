@@ -73,6 +73,11 @@ namespace UGUIEditor {
             Manager.AddVerticalScrollView();
 	    }
 
+        [MenuItem(ComponentTitle + "拖动区域/垂直网格")]
+        private static void AddVerticalGridScrollView() {
+            Manager.AddVerticalGridScrollView();
+	    }
+
         [MenuItem(ComponentTitle + "其他/复选框")]
         private static void AddToggle() {
             Manager.AddToggle();

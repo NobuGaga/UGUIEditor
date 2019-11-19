@@ -73,6 +73,10 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.VerticalScrollView);
         }
 
+        public static void AddVerticalGridScrollView() {
+            Controller.AddGameObject(EPrefabType.VerticalGridScrollView);
+        }
+
         public static void AddStyleButtonLevelOneHight() {
             Controller.AddPrefabGameObject(EPrefabType.StyleButtonLevelOneHight);
 	    }

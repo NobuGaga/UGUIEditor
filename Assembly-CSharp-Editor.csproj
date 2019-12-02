@@ -44,7 +44,8 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <ItemGroup>     <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
+  <ItemGroup>     <Compile Include="Assets\Editor\Script\CSharp\Shell\Shell.cs" />
+     <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConfig.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConst.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorMenu.cs" />

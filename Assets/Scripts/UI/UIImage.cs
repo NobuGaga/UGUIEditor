@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class UIImage:Image {
 
-    private float m_width;
-    private float m_height;
+    private float m_difWidth;
+    private float m_difHeight;
 
     protected override void Awake() {
-        m_width = Size.x;
-        m_height = Size.y;
+        m_difWidth = Size.x - sprite.textureRect.width;
+        m_difHeight = Size.y - sprite.textureRect.height;
     }
 
     private Vector2 Size {
@@ -16,37 +16,40 @@ public class UIImage:Image {
         get => GetComponent<RectTransform>().sizeDelta;
     }
 
+    private void SetSliceFill(bool isHorizontal, bool isVertical, float amount) {
+        Vector2 size = Size;
+        if (isHorizontal)
+            size.x = sprite.textureRect.width + m_difWidth * amount;
+        if (isVertical)
+            size.y = sprite.textureRect.height + m_difHeight * amount;
+        Size = size;
+    }
+
+    public new float fillAmount {
+        set {
+            if (type == Type.Sliced)
+                SetSliceFill(true, true, value);
+            else
+                base.fillAmount = value;
+        }
+        get => base.fillAmount;
+    }
+
     public float fillAmountX {
         set {
-            switch (type) {
-                case Type.Sliced:
-                    if (value < 0)
-                        return;
-                    Vector2 size = Size;
-                    size.x = m_width * value;
-                    Size = size;
-                    break;
-                default:
-                    fillAmount = value;
-                    break;
-            }
+            if (type == Type.Sliced)
+                SetSliceFill(true, false, value);
+            else
+                fillAmount = value;
         }
     }
 
     public float fillAmountY {
         set {
-            switch (type) {
-                case Type.Sliced:
-                    if (value < 0)
-                        return;
-                    Vector2 size = Size;
-                    size.y = m_height * value;
-                    Size = size;
-                    break;
-                default:
-                    fillAmount = value;
-                    break;
-            }
+            if (type == Type.Sliced)
+                SetSliceFill(false, true, value);
+            else
+                fillAmount = value;
         }
     }
 }

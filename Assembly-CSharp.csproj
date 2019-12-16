@@ -45,7 +45,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\UI\UIImage.cs" />
+     <Compile Include="Assets\Scripts\UI\AnimatorSpeed.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

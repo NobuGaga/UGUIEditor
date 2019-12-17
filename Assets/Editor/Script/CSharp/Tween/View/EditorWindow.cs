@@ -3,7 +3,7 @@ namespace Tween {
 
     internal class EditorWindow : BaseEditorWindow {
 
-        private const string WindowName = "技能编辑器窗口";
+        public const string WindowName = "Tween 编辑器窗口";
 
         public static void Open() => Open<EditorWindow>(WindowName);
 
@@ -24,7 +24,7 @@ namespace Tween {
         }
 
         private void OnGUI() {
-
+            
         }
     }
 }

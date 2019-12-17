@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\Script\CSharp\Base\BaseEditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\Shell\Shell.cs" />
+     <Compile Include="Assets\Editor\Script\CSharp\Tween\EditorMenu.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\Tween\View\EditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConfig.cs" />
@@ -282,6 +283,12 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

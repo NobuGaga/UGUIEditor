@@ -3,7 +3,6 @@
         // Auto Add
         "**/.DS_Store" : true,
         "**/.git" : true,
-        "**/.gitignore" : true,
         "**/.gitmodules" : true,
         "**/*.booproj" : true,
         "**/*.pidb" : true,
@@ -57,5 +56,6 @@
         "Logs/" : true,
         "Packages/" : true,
         "Assets/Working" : true,
+        "**/*.mdb" : true,
     }
 }

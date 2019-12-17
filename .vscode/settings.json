@@ -54,7 +54,6 @@
 
         // Custom Add
         "Logs/" : true,
-        "Packages/" : true,
         "Assets/Working" : true,
         "**/*.mdb" : true,
     }

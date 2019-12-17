@@ -45,7 +45,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\Script\CSharp\Base\BaseEditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\Shell\Shell.cs" />
+     <Compile Include="Assets\Editor\Script\CSharp\Tween\View\EditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConfig.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConst.cs" />

@@ -47,8 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\Script\CSharp\Base\BaseEditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\Shell\Shell.cs" />
-     <Compile Include="Assets\Editor\Script\CSharp\Tween\EditorMenu.cs" />
-     <Compile Include="Assets\Editor\Script\CSharp\Tween\View\EditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConfig.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConst.cs" />
@@ -284,11 +282,23 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="DOTween">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/DOTween/DOTween.dll</HintPath>
- </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenProEditor">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiEditor">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -649,9 +659,17 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{57499AD8-6AFD-3323-811F-F32D2FBB4F27}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{07A52C5B-405C-D273-EA1D-1F50809E1E9A}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{72015492-371B-6FBD-F091-DA4F157D3C18}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

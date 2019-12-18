@@ -45,12 +45,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
-     <Compile Include="Assets\Scripts\DOTweenTest.cs" />
      <Compile Include="Assets\Scripts\UI\AnimatorSpeed.cs" />
-     <None Include="Assets\DOTween\readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -261,8 +256,14 @@
  <Reference Include="UnityEditor">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/DemiLib.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/DOTween/DOTween.dll</HintPath>
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -618,6 +619,12 @@
  <Reference Include="Boo.Lang">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{57499AD8-6AFD-3323-811F-F32D2FBB4F27}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

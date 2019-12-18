@@ -5,21 +5,16 @@ using System;
 using System.IO;
 
 namespace UGUIEditor {
-    internal static class Tool {
+
+    public static class Tool {
         
-        public static void DeleteAllPrefabMissingComponent() {
-            LoadAllPrefab(DeletePrefabMissingComponent);
-        }
+        public static void DeleteAllPrefabMissingComponent() => LoadAllPrefab(DeletePrefabMissingComponent);
 
-        public static void DeleteAllPrefabNoNeedCanvasRenderer() {
-            LoadAllPrefab(DeleteNoNeedCanvasRenderer);
-        }
+        public static void DeleteAllPrefabNoNeedCanvasRenderer() => LoadAllPrefab(DeleteNoNeedCanvasRenderer);
 
-        public static void UnpackAllPrefabInstance() {
-            LoadAllPrefab(UnpackPrefabInstance);
-        }
+        public static void UnpackAllPrefabInstance() => LoadAllPrefab(UnpackPrefabInstance);
 
-        private static void LoadAllPrefab(Action<GameObject> doSomething) {
+        public static void LoadAllPrefab(Action<GameObject> doSomething) {
             LoadPrefab(EditorPath.TempleteUI, doSomething);
             string[] windowFolders = Directory.GetDirectories(EditorPath.UI);
             if (windowFolders != null)
@@ -107,12 +102,9 @@ namespace UGUIEditor {
             }
         }
 
-        public static string GetNameWithExtension(string name, string extension) {
-            return GetCacheString(string.Format("{0}.{1}", GetCacheString(name), GetCacheString(extension)));
-        }
+        public static string GetNameWithExtension(string name, string extension) =>
+            GetCacheString(string.Format("{0}.{1}", GetCacheString(name), GetCacheString(extension)));
 
-        public static string GetCacheString(string text) {
-            return string.Intern(text);
-        }
+        public static string GetCacheString(string text) => string.Intern(text);
     }
 }

@@ -2,7 +2,8 @@
 using System.IO;
 
 namespace UGUIEditor {
-    internal static class EditorPath {
+
+    public static class EditorPath {
 
         public const string ProjectPathStart = "Assets";
         public static readonly string Scene = Combine(ProjectPathStart, "Main.unity");

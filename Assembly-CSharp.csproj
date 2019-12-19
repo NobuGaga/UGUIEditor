@@ -45,6 +45,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DOTween\Structure\AnimationJson.cs" />
      <Compile Include="Assets\Scripts\UI\AnimatorSpeed.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -256,14 +257,14 @@
  <Reference Include="UnityEditor">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
+ </Reference>
  <Reference Include="DemiLib">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/DemiLib.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/DOTween.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenPro">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

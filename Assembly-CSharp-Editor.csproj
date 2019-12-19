@@ -284,8 +284,8 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="DOTweenEditor">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <Reference Include="DOTweenPro">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenProEditor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
@@ -293,14 +293,14 @@
  <Reference Include="DemiLib">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/DemiLib.dll</HintPath>
  </Reference>
- <Reference Include="DOTween">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/DOTween.dll</HintPath>
- </Reference>
  <Reference Include="DemiEditor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
  </Reference>
- <Reference Include="DOTweenPro">
- <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTweenPro/DOTweenPro.dll</HintPath>
+ <Reference Include="DOTween">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Assets/Plugins/DOTween/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

@@ -11,7 +11,7 @@ namespace DOTweenExtension.Editor {
         public static void Export() {
             foreach (var pair in m_dicObjectTweenList) {
                 var list = pair.Value;
-                list.Clear();               
+                list.Clear();
             }
             UGUIEditor.Tool.LoadAllPrefab(AddDOTweenAnimation);
         }

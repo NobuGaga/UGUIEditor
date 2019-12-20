@@ -45,7 +45,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\DOTween\Structure\AnimationJson.cs" />
+     <Compile Include="Assets\Scripts\DOTween\Controller\DOTweenAnimationTranslator.cs" />
+     <Compile Include="Assets\Scripts\DOTween\Structure\DOTweenAnimation.cs" />
+     <Compile Include="Assets\Scripts\DOTween\Structure\DOTweenAnimationJson.cs" />
      <Compile Include="Assets\Scripts\UI\AnimatorSpeed.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/biweixiong/Documents/GitHub/Unity/UGUIEditor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -4,6 +4,16 @@ namespace DOTweenExtension.Runtime {
 
     public struct DOTweenAnimationJson {
 
+        // ABSAnimationComponent Member
+        public string on_rewind;
+        public string on_stepComplete;
+        public string on_update;
+        public string on_play;
+        public string on_start;
+        public string on_complete;
+        public bool is_speed_based;
+
+        // DOTweenAnimation Member
         public string target_name;
         public string animation_type;
         public string target_type;
@@ -38,25 +48,10 @@ namespace DOTweenExtension.Runtime {
         public string optional_string;
         public string rotate_mode;
         public string scramble_mode;
-
-        public DOTweenAnimationJson(string target_name) {
-            this.target_name = target_name;
-            animation_type = target_type = ease_type = curve_pre_wrap = curve_post_wrap = loop_type = id = 
-            end_string_value = end_transform_name = optional_string = rotate_mode = scramble_mode = default;
-            delay = duration = end_float_value = optional_float = default;
-            curve_times = curve_values = default;
-            loops = optional_int = default;
-            is_relative = is_from = is_independent_update = is_auto_kill = is_active = is_valid = is_auto_play = is_use_target_vector3 = optional_bool = default;
-            end_vector3_value = end_vector2_value = default;
-            end_color_value = default;
-            end_rect_value = default;
-        }
     }
 
     public struct DOTweenAnimationJsons {
 
         public DOTweenAnimationJson[] jsons;
-
-        public DOTweenAnimationJsons(DOTweenAnimationJson[] jsons) => this.jsons = jsons;
     }
 }

@@ -6,7 +6,7 @@ namespace DOTweenExtension.Editor {
 
         private const string MenuTitle = "DOTween/";
 
-        [MenuItem(MenuTitle + "导出 DOTweenAnimation 数据 #S")]
+        [MenuItem(MenuTitle + "导出 DOTweenAnimation 数据")]
         private static void Export() => Manager.Export();
     }
 }

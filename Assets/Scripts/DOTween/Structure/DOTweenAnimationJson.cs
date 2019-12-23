@@ -1,4 +1,3 @@
-using UnityEngine;
 
 namespace DOTweenExtension.Runtime {
 
@@ -6,7 +5,7 @@ namespace DOTweenExtension.Runtime {
 
         // ABSAnimationComponent Member
         public string on_rewind;
-        public string on_stepComplete;
+        public string on_step_complete;
         public string on_update;
         public string on_play;
         public string on_start;
@@ -36,11 +35,12 @@ namespace DOTweenExtension.Runtime {
         public bool is_auto_play;
         public bool is_use_target_vector3;
         public float end_float_value;
-        public Vector3 end_vector3_value;
-        public Vector2 end_vector2_value;
-        public Color end_color_value;
+        public string end_vector3_value;
+        public string end_vector2_value;
+        public string end_color_value;
         public string end_string_value;
-        public Rect end_rect_value;
+        public string end_rect_pos_value;
+        public string end_rect_size_value;
         public string end_transform_name;
         public bool optional_bool;
         public float optional_float;

@@ -15,7 +15,9 @@ namespace DOTweenExtension.Runtime {
 
 #endregion
 
-        #region Copy ABSAnimationComponent Member (Delete updateType, hasOnTweenCreated, onTweenCreated)
+        #region Copy ABSAnimationComponent Member (Delete updateType, hasOnTweenCreated, onTweenCreated) and disable structure default value warning
+
+        #pragma warning disable 0649
 
         public Tween tween;
         public UnityEvent onRewind;
@@ -71,7 +73,7 @@ namespace DOTweenExtension.Runtime {
         }
         #endregion
 
-        #region Copy DOTweenAnimation Member (Delete private member)
+        #region Copy DOTweenAnimation Member (Delete private member) and restore structure default value warning
 
         public bool targetIsSelf = true; // If FALSE allows to set the target manually
         public GameObject targetGO = null; // Used in case targetIsSelf is FALSE
@@ -113,6 +115,9 @@ namespace DOTweenExtension.Runtime {
         public RotateMode optionalRotationMode = RotateMode.Fast;
         public ScrambleMode optionalScrambleMode = ScrambleMode.None;
         public string optionalString;
+
+        #pragma warning restore 0649
+
         #endregion
 
         #region Copy DOTweenAnimation CreateTween() Method (Delete hasOnTweenCreated and onTweenCreated code, this.gameObject use targetGO insteaded)

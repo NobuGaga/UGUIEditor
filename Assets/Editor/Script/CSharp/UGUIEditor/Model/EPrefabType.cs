@@ -12,6 +12,7 @@ namespace UGUIEditor {
         Toggle,
         ProcessBar,
         Slider,
+        ScrollItem,
         HorizontalScrollView,
         VerticalScrollView,
         VerticalGridScrollView,

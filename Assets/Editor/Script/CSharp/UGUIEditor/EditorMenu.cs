@@ -63,19 +63,24 @@ namespace UGUIEditor {
             Manager.AddStyleOneButton();
 	    }
 
-        [MenuItem(ComponentTitle + "拖动区域/水平")]
+        [MenuItem(ComponentTitle + "滚动列表/水平")]
         private static void AddHorizontalScrollView() {
             Manager.AddHorizontalScrollView();
 	    }
 
-        [MenuItem(ComponentTitle + "拖动区域/垂直")]
+        [MenuItem(ComponentTitle + "滚动列表/垂直")]
         private static void AddVerticalScrollView() {
             Manager.AddVerticalScrollView();
 	    }
 
-        [MenuItem(ComponentTitle + "拖动区域/垂直网格")]
+        [MenuItem(ComponentTitle + "滚动列表/垂直网格")]
         private static void AddVerticalGridScrollView() {
             Manager.AddVerticalGridScrollView();
+	    }
+
+        [MenuItem(ComponentTitle + "滚动列表/item模板")]
+        private static void AddScrollItem() {
+            Manager.AddScrollItem();
 	    }
 
         [MenuItem(ComponentTitle + "其他/复选框")]
@@ -88,7 +93,7 @@ namespace UGUIEditor {
             Manager.AddProcess();
 	    }
 
-        [MenuItem(ComponentTitle + "其他/拖动条")]
+        [MenuItem(ComponentTitle + "其他/滑块条")]
         private static void AddSlider() {
             Manager.AddSlider();
 	    }

@@ -69,6 +69,10 @@ namespace UGUIEditor {
             Controller.AddGameObject(EPrefabType.HorizontalScrollView);
         }
 
+        public static void AddScrollItem() {
+            Controller.AddGameObject(EPrefabType.ScrollItem);
+        }
+
         public static void AddVerticalScrollView() {
             Controller.AddGameObject(EPrefabType.VerticalScrollView);
         }

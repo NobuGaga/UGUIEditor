@@ -49,9 +49,4 @@ namespace DOTweenExtension.Runtime {
         public string rotate_mode;
         public string scramble_mode;
     }
-
-    public struct DOTweenAnimationJsons {
-
-        public DOTweenAnimationJson[] jsons;
-    }
 }

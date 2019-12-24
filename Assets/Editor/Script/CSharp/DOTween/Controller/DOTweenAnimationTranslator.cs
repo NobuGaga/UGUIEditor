@@ -49,6 +49,8 @@ namespace DOTweenExtension.Editor {
                     json.curve_values[index] = curve.keys[index].value;
                 }
             }
+            json.curve_pre_wrap = curve.preWrapMode.ToString();
+            json.curve_post_wrap = curve.postWrapMode.ToString();
 
             json.loop_type = animation.loopType.ToString();
             json.loops = animation.loops;
@@ -63,7 +65,8 @@ namespace DOTweenExtension.Editor {
             json.is_use_target_vector3 = animation.useTargetAsV3;
             json.end_float_value = animation.endValueFloat;
             json.end_vector3_value = animation.endValueV3.ToJson();
-            json.end_vector2_value = animation.endValueColor.ToJson();
+            json.end_vector2_value = animation.endValueV2.ToJson();
+            json.end_color_value = animation.endValueColor.ToJson();
             json.end_string_value = animation.endValueString;
             json.end_rect_pos_value = animation.endValueRect.position.ToJson();
             json.end_rect_size_value = animation.endValueRect.size.ToJson();

@@ -93,7 +93,7 @@ namespace UGUIEditor {
             Manager.AddProcess();
 	    }
 
-        [MenuItem(ComponentTitle + "其他/滑块条")]
+        [MenuItem(ComponentTitle + "其他/滑动块")]
         private static void AddSlider() {
             Manager.AddSlider();
 	    }

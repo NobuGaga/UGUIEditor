@@ -67,7 +67,8 @@ namespace DOTweenExtension.Editor {
             json.end_string_value = animation.endValueString;
             json.end_rect_pos_value = animation.endValueRect.position.ToJson();
             json.end_rect_size_value = animation.endValueRect.size.ToJson();
-            json.end_transform_name = animation.endValueTransform.name;
+            if (animation.endValueTransform != null)
+                json.end_transform_name = animation.endValueTransform.name;
             json.optional_bool = animation.optionalBool0;
             json.optional_float = animation.optionalFloat0;
             json.optional_int = animation.optionalInt0;

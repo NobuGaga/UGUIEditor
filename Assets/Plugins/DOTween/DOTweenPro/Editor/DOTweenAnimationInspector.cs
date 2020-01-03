@@ -81,6 +81,11 @@ namespace DG.DOTweenEditor
 #endif
                 typeof(Renderer),
             }},
+            { DOTweenAnimation.AnimationType.Fill, new[] {
+#if true // UI_MARKER
+                typeof(Image),
+#endif
+            }},
 #if true // UI_MARKER
             { DOTweenAnimation.AnimationType.Text, new[] { typeof(Text) } },
 #endif
@@ -134,6 +139,7 @@ namespace DG.DOTweenEditor
             "Scale",
             "Color", "Fade",
 #if true // UI_MARKER
+            "Fill",
             "Text",
 #endif
 #if false // TK2D_MARKER
@@ -509,6 +515,12 @@ namespace DG.DOTweenEditor
                     GUIEndValueFloat();
                     if (_src.endValueFloat < 0) _src.endValueFloat = 0;
                     if (!_isLightSrc && _src.endValueFloat > 1) _src.endValueFloat = 1;
+                    canBeRelative = false;
+                    break;
+                case DOTweenAnimation.AnimationType.Fill:
+                    GUIEndValueFloat();
+                    if (_src.endValueFloat < 0) _src.endValueFloat = 0;
+                    else if (_src.endValueFloat > 1) _src.endValueFloat = 1;
                     canBeRelative = false;
                     break;
                 case DOTweenAnimation.AnimationType.Text:

@@ -28,6 +28,7 @@ namespace DG.Tweening
             Rotate, LocalRotate,
             Scale,
             Color, Fade,
+            Fill,
             Text,
             PunchPosition, PunchRotation, PunchScale,
             ShakePosition, ShakeRotation, ShakeScale,
@@ -350,6 +351,16 @@ namespace DG.Tweening
                     break;
                 case TargetType.TextMeshPro:
                     tween = ((TextMeshPro)target).DOFade(endValueFloat, duration);
+                    break;
+#endif
+                }
+                break;
+            case AnimationType.Fill:
+                isRelative = false;
+                switch (targetType) {
+#if true // UI_MARKER
+                case TargetType.Image:
+                    tween = (target as Image).DOFillAmount(endValueFloat, duration);
                     break;
 #endif
                 }

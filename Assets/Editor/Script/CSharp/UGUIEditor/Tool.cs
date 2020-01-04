@@ -26,7 +26,7 @@ namespace UGUIEditor {
         }
 
         private static void LoadAllParticlePrefab(Action<GameObject> doSomething) {
-            LoadPrefab(EditorPath.ParticleEffectAssetPath, doSomething);
+            LoadPrefab(EditorPath.ParticleEffect, doSomething);
             AssetDatabase.SaveAssets();
         }
 

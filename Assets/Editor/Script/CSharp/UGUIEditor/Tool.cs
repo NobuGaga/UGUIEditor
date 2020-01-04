@@ -25,6 +25,11 @@ namespace UGUIEditor {
             AssetDatabase.SaveAssets();
         }
 
+        private static void LoadAllParticlePrefab(Action<GameObject> doSomething) {
+            LoadPrefab(EditorPath.ParticleEffectAssetPath, doSomething);
+            AssetDatabase.SaveAssets();
+        }
+
         private static void LoadPrefab(string folderPath, Action<GameObject> doSomething) {
             if (!Directory.Exists(folderPath))
                 return;
@@ -101,6 +106,19 @@ namespace UGUIEditor {
                 break;
             }
         }
+
+        #pragma warning disable 0618
+        
+        private const ParticleSystemScalingMode UseParticleScale = ParticleSystemScalingMode.Local;
+        private static void SetParticleScaleMode(GameObject prefab) {
+            ParticleSystem[] particles = prefab.GetComponentsInChildren<ParticleSystem>(true);
+            if (particles == null || particles.Length == 0)
+                return;
+            foreach (ParticleSystem particle in particles)
+                particle.scalingMode = UseParticleScale;
+        }
+
+        #pragma warning restore 0618
 
         public static string GetNameWithExtension(string name, string extension) =>
             GetCacheString(string.Format("{0}.{1}", GetCacheString(name), GetCacheString(extension)));

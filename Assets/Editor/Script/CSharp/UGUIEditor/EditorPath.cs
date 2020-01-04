@@ -10,6 +10,7 @@ namespace UGUIEditor {
         public static readonly string UI = Combine(Application.dataPath, "Working/UI");
         public const string UIPrefabsFolder = "Prefabs";
         public const string TempleteUIAssetPath = "Resources/TempleteUI";
+        public const string ParticleEffectAssetPath = "fx/ui";
         public static readonly string TempleteUI = Combine(Application.dataPath, TempleteUIAssetPath);
 
         public static string FullPathToProjectPath(string fullPath) {

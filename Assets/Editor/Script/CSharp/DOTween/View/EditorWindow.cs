@@ -57,8 +57,8 @@ namespace DOTweenExtension.Editor {
         private void SetDelayUI() {
             SpaceWithLabel(LabelDelay);
             m_delay = TextField(m_delay);
-            if (SpaceWithButton(LabelSet))
-            return;
+            if (!SpaceWithButton(LabelSet))
+                return;
             if (string.IsNullOrEmpty(m_id))
                 Controller.SetAllAnimationDelay(m_delay);
             else

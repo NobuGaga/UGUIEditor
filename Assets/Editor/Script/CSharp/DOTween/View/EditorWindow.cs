@@ -47,14 +47,22 @@ namespace DOTweenExtension.Editor {
         private void SetAutoPlayUI() {
             SpaceWithLabel(LabelAutoPlay);
             m_isAutoPlay = EditorGUILayout.Toggle(m_isAutoPlay);
-            if (SpaceWithButton(LabelSet))
+            if (!SpaceWithButton(LabelSet))
+                return;
+            if (string.IsNullOrEmpty(m_id))
                 Controller.SetAllAnimationAutoPlay(m_isAutoPlay);
+            else
+                Controller.SetAnimationAutoPlayByID(m_isAutoPlay, m_id);
         }
         private void SetDelayUI() {
             SpaceWithLabel(LabelDelay);
             m_delay = TextField(m_delay);
             if (SpaceWithButton(LabelSet))
+            return;
+            if (string.IsNullOrEmpty(m_id))
                 Controller.SetAllAnimationDelay(m_delay);
+            else
+                Controller.SetAnimationDelayByID(m_delay, m_id);
         }
     }
 }

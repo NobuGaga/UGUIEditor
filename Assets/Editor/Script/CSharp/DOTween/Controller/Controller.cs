@@ -26,6 +26,18 @@ namespace DOTweenExtension.Editor {
         
         public static void SetAllAnimationDelay(float delay) =>
             SetAllAnimation((DOTweenAnimation tween) => tween.delay = delay);
+
+        public static void SetAnimationAutoPlayByID(bool isAutoPlay, string id) =>
+            SetAllAnimation((DOTweenAnimation tween) => {
+                if (tween.id == id)
+                    tween.autoPlay = isAutoPlay;
+            });
+        
+        public static void SetAnimationDelayByID(float delay, string id) =>
+            SetAllAnimation((DOTweenAnimation tween) => {
+                if (tween.id == id)
+                    tween.delay = delay;
+            });
         #endregion
 
         #region Write Tween Configure File

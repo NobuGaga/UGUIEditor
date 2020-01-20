@@ -1,12 +1,34 @@
 using UnityEngine;
+using UnityEditor;
+using System;
 using System.IO;
 using System.Text;
 using DG.Tweening;
-using UGUIEditor;
 
 namespace DOTweenExtension.Editor {
 
     internal static class Controller {
+
+        #region DOTween Extension Window
+
+        public static void SetGameObject(UnityEngine.Object gameObject) => Model.SetGameObject(gameObject);
+
+        private static void SetAllAnimation(Action<DOTweenAnimation> setter) {
+            DOTweenAnimation[] animations = Model.CurrentAnimation;
+            for (ushort index = 0; index < animations.Length; index++)
+                setter(animations[index]);
+            EditorUtility.SetDirty(Model.CurrentObject);
+            AssetDatabase.SaveAssets();
+        }
+
+        public static void SetAllAnimationAutoPlay(bool isAutoPlay) =>
+            SetAllAnimation((DOTweenAnimation tween) => tween.autoPlay = isAutoPlay);
+        
+        public static void SetAllAnimationDelay(float delay) =>
+            SetAllAnimation((DOTweenAnimation tween) => tween.delay = delay);
+        #endregion
+
+        #region Write Tween Configure File
 
         private static StringBuilder m_stringbuilder = new StringBuilder();
 
@@ -35,7 +57,7 @@ namespace DOTweenExtension.Editor {
                 m_stringbuilder.Replace("\n", "\n\t");
                 m_stringbuilder.Insert(0, "[\n\t");
                 m_stringbuilder.Append("\n]");
-                string path = Path.JsonPath + Tool.GetNameWithExtension(name, Const.JsonTextExtension);
+                string path = Path.JsonPath + UGUIEditor.Tool.GetNameWithExtension(name, Const.JsonTextExtension);
                 FileStream file = new FileStream(path, FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
                 fileWriter.Write(m_stringbuilder.ToString());
@@ -43,6 +65,7 @@ namespace DOTweenExtension.Editor {
                 fileWriter.Dispose();    
             }
         }
+        #endregion
 
         public static void Clear() => Model.Clear();
     }

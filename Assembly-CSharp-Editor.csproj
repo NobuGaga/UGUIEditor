@@ -54,6 +54,7 @@
      <Compile Include="Assets\Editor\Script\CSharp\DOTween\Manager\Manager.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\DOTween\Model\Model.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\DOTween\UnityExtension\UnityExtension.cs" />
+     <Compile Include="Assets\Editor\Script\CSharp\DOTween\View\EditorWindow.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\Shell\Shell.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\Controller\Controller.cs" />
      <Compile Include="Assets\Editor\Script\CSharp\UGUIEditor\EditorConfig.cs" />

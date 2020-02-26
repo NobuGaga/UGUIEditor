@@ -32,8 +32,10 @@ namespace UGUIEditor {
             EPrefabType.StyleButtonLevelOneHight,
             EPrefabType.StyleButtonLevelTwoHight,
             EPrefabType.StyleButtonLevelTwoLow,
+            EPrefabType.StyleTabToggleVertical,
+            EPrefabType.StyleTabToggleHorizontal,
         };
-        
+
         public static bool isNestPrefab(this EPrefabType type) {
             for (ushort index = 0; index < m_arrayNestPrefab.Length; index++)
                 if (type == m_arrayNestPrefab[index])

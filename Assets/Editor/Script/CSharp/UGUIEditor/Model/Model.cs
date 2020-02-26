@@ -18,7 +18,8 @@ namespace UGUIEditor {
         }
 
         private static void AddTempleteUI(EPrefabType prefabType, string prefabName) {
-            string path = EditorPath.Combine(EditorPath.ProjectPathStart, EditorPath.TempleteUIAssetPath);
+            string prefabPath = prefabType.isNestPrefab() ? EditorPath.TempleteUIAssetPath : EditorPath.NestUIAssetPath;
+            string path = EditorPath.Combine(EditorPath.ProjectPathStart, prefabPath);
             string prefabWithExt = Tool.GetNameWithExtension(prefabName, EditorConst.PrefabExtension);
             m_dicPrefabPath.Add(prefabType, EditorPath.Combine(path, prefabWithExt));
         }

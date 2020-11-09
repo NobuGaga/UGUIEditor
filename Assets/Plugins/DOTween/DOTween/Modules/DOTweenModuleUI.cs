@@ -3,6 +3,8 @@
 
 #if true && (UNITY_4_6 || UNITY_5 || UNITY_2017_1_OR_NEWER) // MODULE_MARKER
 using System;
+using System.Text;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening.Core;
@@ -491,6 +493,51 @@ namespace DG.Tweening
             return t;
         }
 
+        private const ushort DOText_Text_Length = 512;
+        private static StringBuilder m_doTextCache = new StringBuilder(DOText_Text_Length);
+        private static Stack<string> m_doTextRichPairCache = new Stack<string>(8);
+        private static Dictionary<string, string> m_doTextRichPair = new Dictionary<string, string>(32);
+        private static string[] m_doTextRichArray;
+        private static Dictionary<ushort, string[]> m_doTextIndexRichStart = new Dictionary<ushort, string[]>(DOText_Text_Length);
+
+        private static void SetDoTextRichIndex(ushort startIndex, string endValue) {
+            m_doTextCache.Clear();
+            m_doTextIndexRichStart.Clear();
+            bool isRichStart = false;
+            bool isRichEnd = false;
+            bool isRichContent = false;
+            for (ushort index = startIndex; index < endValue.Length; index++) {
+                char curChar = endValue[index];
+                if (curChar == '<' && !isRichStart && !isRichEnd) {
+                    isRichEnd = endValue[index + 1] == '/';
+                    isRichStart = !isRichEnd;
+                    isRichContent = false;
+                } else if (curChar == '>' && (isRichStart || isRichEnd)) {
+                    isRichContent = isRichStart;
+                    m_doTextCache.Append(curChar);
+                    if (isRichStart) {
+                        string richPairStart = m_doTextCache.ToString();
+                        if (richPairStart.Contains("<color=#"))
+                            richPairStart = "<color=#00000000>";
+                        m_doTextRichPairCache.Push(richPairStart);
+                    } else if (isRichEnd) {
+                        string richPairStart = m_doTextRichPairCache.Pop();
+                        if (!m_doTextRichPair.ContainsKey(richPairStart))
+                            m_doTextRichPair.Add(richPairStart, m_doTextCache.ToString());
+                    }
+                    m_doTextCache.Clear();
+                    m_doTextRichArray = isRichContent ? m_doTextRichPairCache.ToArray() : null;
+                    isRichStart = isRichEnd = false;
+                }
+                if (isRichStart || isRichEnd)
+                    m_doTextCache.Append(curChar);
+                if (curChar != '>' && isRichContent)
+                    m_doTextIndexRichStart.Add(index, m_doTextRichArray);
+            }
+            m_doTextRichPairCache.Clear();
+            m_doTextRichArray = null;
+        }
+
         /// <summary>Tweens a Text's text to the given value.
         /// Also stores the Text as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end string to tween to</param><param name="duration">The duration of the tween</param>
@@ -506,7 +553,47 @@ namespace DG.Tweening
                 if (Debugger.logPriority > 0) Debugger.LogWarning("You can't pass a NULL string to DOText: an empty string will be used instead to avoid errors");
                 endValue = "";
             }
-            TweenerCore<string, string, StringOptions> t = DOTween.To(() => target.text, x => target.text = x, endValue, duration);
+            bool isRich = false;
+            for (ushort index = 0; index < endValue.Length; index++)
+                if (endValue[index] == '<') {
+                    isRich = true;
+                    SetDoTextRichIndex(index, endValue);
+                    break;
+                }
+            TweenerCore<string, string, StringOptions> t = DOTween.To(
+                () => target.text,
+                (x) => {
+                    m_doTextCache.Clear();
+                    m_doTextCache.Append(x);
+                    m_doTextCache.Append("<color=#00000000>");
+                    bool isEqual = true;
+                    ushort richEndLength = 0;
+                    if (isRich)
+                        for (ushort index = 0; index < x.Length; index++) {
+                            if (x[index] != endValue[index])
+                                isEqual = false;
+                            if (!isEqual)
+                                richEndLength++;
+                        }
+                    
+                    if (isEqual)
+                        for (int index = x.Length; index < endValue.Length; index++)
+                            m_doTextCache.Append(endValue[index]);
+                    else {
+                        ushort startIndex = Convert.ToUInt16(x.Length - richEndLength);
+                        string[] richEndList = m_doTextIndexRichStart[startIndex];
+                        if (m_doTextIndexRichStart.ContainsKey(startIndex))
+                            for (short arrayIndex = Convert.ToInt16(richEndList.Length - 1); arrayIndex >= 0; arrayIndex--)
+                                m_doTextCache.Append(richEndList[arrayIndex]);
+                        for (int index = startIndex; index < endValue.Length; index++)
+                            m_doTextCache.Append(endValue[index]);
+                    }
+                    m_doTextCache.Append("</color>");
+                    target.text = m_doTextCache.ToString();
+                },
+                endValue,
+                duration
+            );
             t.SetOptions(richTextEnabled, scrambleMode, scrambleChars)
                 .SetTarget(target);
             return t;
